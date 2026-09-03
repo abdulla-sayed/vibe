@@ -1,0 +1,7 @@
+export default async function LandingPage() {
+  return (
+    <div>
+      <p>Landing page (unprotected)</p>
+    </div>
+  );
+}
