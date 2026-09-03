@@ -1,20 +1,30 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import {
+  ClerkProvider,
+  Show,
+  SignInButton,
+  SignUpButton,
+  UserButton,
+} from "@clerk/nextjs";
+import { IBM_Plex_Mono, Lexend_Deca } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const lexend = Lexend_Deca({
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-lexend",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-plex-mono",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  // over here you set the title of your app and the description
-  title: "Genius",
+  title: "Vibe",
   description: "AI Platform",
 };
 
@@ -24,15 +34,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html
+      lang="en"
+      className={`${lexend.variable} ${plexMono.variable} h-full antialiased`}
+    >
+      <body className="min-h-full flex flex-col">
+        <ClerkProvider>{children}</ClerkProvider>
       </body>
     </html>
   );
 }
+
 /*
  * something inside your current folder is reached with a single /
  * if you want to navigate into something more inside, you do /current/something
