@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import {
   ClerkProvider,
-  Show,
-  SignInButton,
-  SignUpButton,
-  UserButton,
+  // Show,
+  // SignInButton,
+  // SignUpButton,
+  // UserButton,
 } from "@clerk/nextjs";
 import { IBM_Plex_Mono, Lexend_Deca } from "next/font/google";
 import "./globals.css";
